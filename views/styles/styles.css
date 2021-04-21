@@ -5,3 +5,12 @@
 #navbarHR{
     padding-bottom: 2px;
 }
+
+.container{
+    border: 2px solid rgba(108,117,125,0.25);
+    border-radius: 5px;
+}
+
+img{
+    border-radius: 5px;
+}
