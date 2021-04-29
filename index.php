@@ -10,6 +10,9 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+// start a session
+session_start();
+
 // require autoload file
 require_once('vendor/autoload.php');
 
@@ -25,7 +28,18 @@ $f3->route('GET /', function (){
 });
 
 // part 1 of the create a profile form
-$f3->route('GET /personalInfo', function (){
+$f3->route('GET|POST /personalInfo', function (){
+    // if the form has been submitted, add data to session
+    // and send user to next form
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $_SESSION['fName'] = $_POST['fName'];
+        $_SESSION['lName'] = $_POST['lName'];
+        $_SESSION['age'] = $_POST['age'];
+        $_SESSION['gender'] = $_POST['gender'];
+        $_SESSION['phoneNum'] = $_POST['phoneNum'];
+        header('location: profile');
+    }
+
     // display the form part 1 "Personal Information"
     $view = new Template();
     echo $view->render('views/personalInfo.html');
@@ -33,14 +47,14 @@ $f3->route('GET /personalInfo', function (){
 
 // part 2 of the create a profile form
 $f3->route('GET /profile', function (){
-    // display the form part 1 "Profile"
+    // display the form part 2 "Profile"
     $view = new Template();
     echo $view->render('views/profile.html');
 });
 
 // part 3 of the create a profile form
 $f3->route('GET /interests', function (){
-    // display the form part 1 "Interests"
+    // display the form part 3 "Interests"
     $view = new Template();
     echo $view->render('views/interests.html');
 });

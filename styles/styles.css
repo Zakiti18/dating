@@ -1,0 +1,31 @@
+.container{
+    border: 2px solid rgba(108,117,125,0.25);
+    border-radius: 5px;
+}
+
+#navbarBrand{
+    font-weight: bold;
+}
+
+#navbarHR{
+    padding-bottom: 2px;
+}
+
+/* used in just home.html */
+img{
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+}
+
+#userQuotes{
+    font-style: italic;
+}
+
+/* used in just personalInfo.html */
+#privacyNote{
+    background-color: lightgray;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    padding: 5px;
+}
