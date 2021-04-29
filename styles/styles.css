@@ -11,13 +11,13 @@
     padding-bottom: 2px;
 }
 
-/* used in just home.html */
-#homeImg{
+#homeImg, #profilePic{
     border-radius: 5px;
     width: 100%;
     height: auto;
 }
 
+/* used in just home.html */
 #userQuotes{
     font-style: italic;
 }
@@ -28,4 +28,15 @@
     border: 2px solid darkgray;
     border-radius: 5px;
     padding: 5px;
+}
+
+/* used in just summary.html */
+#newUserInfo{
+    border: 2px solid rgba(108,117,125,0.25);
+    border-radius: 5px;
+    height: 75%;
+}
+
+#bioTitle{
+    font-size: larger;
 }

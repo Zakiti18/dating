@@ -67,7 +67,12 @@ $f3->route('GET|POST /interests', function (){
     // if the form has been submitted, add data to session
     // and send user to the summary
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $_SESSION['interest'] = implode(' ', $_POST['interest']);
+        if(!empty($_POST['interest'])){
+            $_SESSION['interest'] = implode(' ', $_POST['interest']);
+        }
+        else{
+            $_SESSION['interest'] = "You did not choose any interests";
+        }
         header('location: summary');
     }
 
