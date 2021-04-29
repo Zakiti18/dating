@@ -6,7 +6,54 @@ This is form part 2 for a dating site that I made for the assignment "Dating 2"
 
 <include href="views/header.html"/>
 
-    <h1>Profile</h1>
+    <!-- Container -->
+    <div class="container p-4">
+        <h1>Profile</h1><hr>
+
+        <!-- Form -->
+        <form action="#" method="post" class="row">
+            <!-- Left Side -->
+            <div class="col-6">
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" class="mb-1"><strong>Email</strong></label>
+                    <input type="text" class="form-control" id="email" name="email">
+                </div>
+
+                <!-- State -->
+                <div class="form-group">
+                    <label for="state" class="mb-1"><strong>State</strong></label>
+                    <input type="text" class="form-control" id="state" name="state">
+                </div>
+
+                <!-- Seeking -->
+                <div class="form-group">
+                    <p class="mb-1"><strong>Seeking</strong></p>
+                    <div class="form-check form-check-inline">
+                        <label for="male" class="form-check-label">Male</label>
+                        <input type="radio" class="form-check-input" value="Male" id="male" name="seeking">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label for="female" class="form-check-label">Female</label>
+                        <input type="radio" class="form-check-input" value="Female" id="female" name="seeking">
+                    </div>
+                </div>
+            </div> <!-- Left Side END -->
+
+            <!-- Right Side -->
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="bio" class="mb-1"><strong>Biography</strong></label>
+                    <textarea rows="4" class="form-control" id="bio" name="bio"></textarea>
+                </div>
+            </div> <!-- Right Side END -->
+
+            <!-- Next Button -->
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary" id="nextBtn">Next ></button>
+            </div> <!-- Next Button END -->
+        </form> <!-- Form END -->
+    </div> <!-- Container END -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>

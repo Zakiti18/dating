@@ -46,7 +46,17 @@ $f3->route('GET|POST /personalInfo', function (){
 });
 
 // part 2 of the create a profile form
-$f3->route('GET /profile', function (){
+$f3->route('GET|POST /profile', function (){
+    // if the form has been submitted, add data to session
+    // and send user to next form
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['state'] = $_POST['state'];
+        $_SESSION['seeking'] = $_POST['seeking'];
+        $_SESSION['bio'] = $_POST['bio'];
+        header('location: interests');
+    }
+
     // display the form part 2 "Profile"
     $view = new Template();
     echo $view->render('views/profile.html');
