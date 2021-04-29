@@ -12,7 +12,7 @@
 }
 
 /* used in just home.html */
-img{
+#homeImg{
     border-radius: 5px;
     width: 100%;
     height: auto;
