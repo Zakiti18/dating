@@ -19,9 +19,9 @@ This is the home page of a dating site that I made for the Week 4 assignment "Da
             <h5 class="text-center">Hear what our users are saying about us.</h5>
             <hr>
             <div class="px-4" id="userQuotes">
-                <p>"I've finally found my cupcake!" - Sprinkles</p>
-                <p>"Food was the only thing that made me happy before, now I have someone to enjoy food with and it couldn't be better." - Chubbs</p>
-                <p>"Meow!" - Princess Stinky Pants the 3rd</p>
+                <repeat group="{{@userQuotes}}" key="{{@key}}" value="{{@quote}}">
+                    <p>"{{@quote}}" - {{@key}}</p>
+                </repeat>
             </div> <!-- User Quotes End -->
             <hr>
 

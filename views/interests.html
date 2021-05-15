@@ -17,68 +17,28 @@ This is form part 3 for a dating site that I made for the assignment "Dating 2"
             <div class="mb-2 row">
                 <p class="mb-1 col-12"><strong>In-door Interests</strong></p>
 
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="indoor1" class="form-check-label">sleeping</label>
-                    <input type="checkbox" class="form-check-input" value="sleeping" id="indoor1" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="indoor2" class="form-check-label">eating</label>
-                    <input type="checkbox" class="form-check-input" value="eating" id="indoor2" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="indoor3" class="form-check-label">interrupting humans</label>
-                    <input type="checkbox" class="form-check-input" value="interrupting humans" id="indoor3" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="indoor4" class="form-check-label">playing</label>
-                    <input type="checkbox" class="form-check-input" value="playing" id="indoor4" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="indoor5" class="form-check-label">zooming</label>
-                    <input type="checkbox" class="form-check-input" value="zooming" id="indoor5" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="indoor6" class="form-check-label">kneading</label>
-                    <input type="checkbox" class="form-check-input" value="kneading" id="indoor6" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="indoor7" class="form-check-label">sitting</label>
-                    <input type="checkbox" class="form-check-input" value="sitting" id="indoor7" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="indoor8" class="form-check-label">breaking things</label>
-                    <input type="checkbox" class="form-check-input" value="breaking things" id="indoor8" name="interest[]">
-                </div>
+                <repeat group="{{@indoorBoxes}}" value="{{@interest}}">
+                    <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"
+                                   value="{{@interest}}" name="interest[]"> {{@interest}}
+                        </label>
+                    </div>
+                </repeat>
             </div> <!-- Top Half END -->
 
             <!-- Bottom Half -->
             <div class="row">
                 <p class="mb-1 col-12"><strong>Out-door Interests</strong></p>
 
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="outdoor1" class="form-check-label">sunbathing</label>
-                    <input type="checkbox" class="form-check-input" value="sunbathing" id="outdoor1" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="outdoor2" class="form-check-label">playing</label>
-                    <input type="checkbox" class="form-check-input" value="playing" id="outdoor2" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="outdoor3" class="form-check-label">sleeping</label>
-                    <input type="checkbox" class="form-check-input" value="sleeping" id="outdoor3" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="outdoor4" class="form-check-label">hunting leaves</label>
-                    <input type="checkbox" class="form-check-input" value="hunting leaves" id="outdoor4" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="outdoor5" class="form-check-label">stalking</label>
-                    <input type="checkbox" class="form-check-input" value="stalking" id="outdoor5" name="interest[]">
-                </div>
-                <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
-                    <label for="outdoor6" class="form-check-label">getting stuck</label>
-                    <input type="checkbox" class="form-check-input" value="getting stuck" id="outdoor6" name="interest[]">
-                </div>
+                <repeat group="{{@outdoorBoxes}}" value="{{@interest}}">
+                    <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"
+                                   value="{{@interest}}" name="interest[]"> {{@interest}}
+                        </label>
+                    </div>
+                </repeat>
             </div> <!-- Bottom Half END -->
 
             <!-- Next Button -->
