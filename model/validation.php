@@ -8,32 +8,51 @@
 */
 
 // checks to see that a string is all alphabetic
-function validName(){
+function validName($name)
+{
 
 }
 
 // checks to see that an age is numeric and between 18 and 118
-function validAge(){
-
+function validAge($age)
+{
+    return $age > 18 && $age < 118;
 }
 
 // checks to see that a phone number is valid (you can decide what constitutes a “valid” phone number)
-function validPhone(){
+function validPhone($phone)
+{
 
 }
 
 // checks to see that an email address is valid
-function validEmail(){
+function validEmail($email)
+{
 
 }
 
-
 // checks each selected outdoor interest against a list of valid options
-function validOutdoor(){
-
+function validOutdoor($outdoor)
+{
+    // loop through to check each interest
+    foreach ($outdoor as $interest){
+        // if something that is not part of the dataLayer array, return false
+        if (!in_array($interest, getOutdoorBoxes())){
+            return false;
+        }
+    }
+    return true;
 }
 
 // checks each selected indoor interest against a list of valid options
-function validIndoor(){
-
+function validIndoor($indoor)
+{
+    // loop through to check each interest
+    foreach ($indoor as $interest){
+        // if something that is not part of the dataLayer array, return false
+        if (!in_array($interest, getIndoorBoxes())){
+            return false;
+        }
+    }
+    return true;
 }
