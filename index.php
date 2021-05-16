@@ -35,16 +35,41 @@ $f3->route('GET /', function ($f3){
 });
 
 // part 1 of the create a profile form
-$f3->route('GET|POST /personalInfo', function (){
-    // if the form has been submitted, add data to session
-    // and send user to next form
+$f3->route('GET|POST /personalInfo', function ($f3){
+    // if the form has been submitted, add data to session and send user to next form
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $_SESSION['fName'] = $_POST['fName']; // required
-        $_SESSION['lName'] = $_POST['lName']; // required
-        $_SESSION['age'] = $_POST['age']; // required
+        // check validation
+        // name validation
+        if(validName($_POST['fName']) && validName($_POST['lName'])) {
+            $_SESSION['fName'] = $_POST['fName']; // required
+            $_SESSION['lName'] = $_POST['lName']; // required
+        }
+        else{
+            $f3->set('errors["name"]', 'Both first and last names are required');
+        }
+
+        // age validation
+        if(validAge($_POST['age'])) {
+            $_SESSION['age'] = $_POST['age']; // required
+        }
+        else{
+            $f3->set('errors["age"]', 'Age is required and must be between 18 and 118');
+        }
+
         $_SESSION['gender'] = $_POST['gender'];
-        $_SESSION['phoneNum'] = $_POST['phoneNum']; // required
-        header('location: profile');
+
+        // phone number validation
+        if(validPhone($_POST['phoneNum'])) {
+            $_SESSION['phoneNum'] = $_POST['phoneNum']; // required
+        }
+        else{
+            $f3->set('errors["phone"]', 'Phone number is required and is entered like the example "1234567890"');
+        }
+
+        // if the error array is empty, redirect to next page
+        if(empty($f3->get('errors'))){
+            header('location: profile');
+        }
     }
 
     // display the form part 1 "Personal Information"
@@ -54,8 +79,7 @@ $f3->route('GET|POST /personalInfo', function (){
 
 // part 2 of the create a profile form
 $f3->route('GET|POST /profile', function (){
-    // if the form has been submitted, add data to session
-    // and send user to next form
+    // if the form has been submitted, add data to session and send user to next form
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_SESSION['email'] = $_POST['email']; // required
         $_SESSION['state'] = $_POST['state'];

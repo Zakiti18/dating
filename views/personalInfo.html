@@ -58,6 +58,15 @@ This is form part 1 for a dating site that I made for the assignment "Dating 2"
                 <div id="privacyNote">
                     <p><strong>Note:</strong> All Information entered is protected by our <a class="text-decoration-none" href="#">privacy policy</a>. Profile information can only be viewed by others with your permission.</p>
                 </div>
+
+                <!-- Validation Errors -->
+                <div>
+                    <check if="{{!empty(@errors)}}">
+                        <repeat group="{{@errors}}" value="{{@error}}">
+                            <p class="text-danger"><strong>{{@error}}</strong></p>
+                        </repeat>
+                    </check>
+                </div>
             </div> <!-- Right Half END -->
 
             <!-- Next Button -->
