@@ -29,7 +29,7 @@ This is form part 2 for a dating site that I made for the assignment "Dating 2"
                 <!-- State -->
                 <div class="form-group">
                     <label for="state" class="mb-1"><strong>State</strong></label>
-                    <input type="text" class="form-control" id="state" name="state">
+                    <input type="text" class="form-control" id="state" name="state" value="{{@userState}}">
                 </div>
 
                 <!-- Seeking -->
@@ -37,11 +37,13 @@ This is form part 2 for a dating site that I made for the assignment "Dating 2"
                     <p class="mb-1"><strong>Seeking</strong></p>
                     <div class="form-check form-check-inline">
                         <label for="male" class="form-check-label">Male</label>
-                        <input type="radio" class="form-check-input" value="Male" id="male" name="seeking">
+                        <input type="radio" class="form-check-input" value="Male" id="male" name="seeking"
+                            <check if="{{@userSeeking == 'Male'}}">checked="checked"</check>>
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="female" class="form-check-label">Female</label>
-                        <input type="radio" class="form-check-input" value="Female" id="female" name="seeking">
+                        <input type="radio" class="form-check-input" value="Female" id="female" name="seeking"
+                            <check if="{{@userSeeking == 'Female'}}">checked="checked"</check>>
                     </div>
                 </div>
             </div> <!-- Left Side END -->
@@ -50,7 +52,7 @@ This is form part 2 for a dating site that I made for the assignment "Dating 2"
             <div class="col-sm-6 col-12 mb-3">
                 <div class="form-group">
                     <label for="bio" class="mb-1"><strong>Biography</strong></label>
-                    <textarea rows="4" class="form-control" id="bio" name="bio"></textarea>
+                    <textarea rows="4" class="form-control" id="bio" name="bio">{{@userBio}}</textarea>
                 </div>
             </div> <!-- Right Side END -->
 

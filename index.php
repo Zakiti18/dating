@@ -100,13 +100,19 @@ $f3->route('GET|POST /personalInfo', function ($f3){
 
 // part 2 of the create a profile form
 $f3->route('GET|POST /profile', function ($f3){
-    // initialize variable to store user input for sticky forms
+    // initialize variables to store user input for sticky forms
     $userEmail = "";
+    $userState = "";
+    $userSeeking = "";
+    $userBio = "";
 
     // if the form has been submitted, add data to session and send user to next form
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // actually store user input
         $userEmail = $_POST['email'];
+        $userState = $_POST['state'];
+        $userSeeking = $_POST['seeking'];
+        $userBio = $_POST['bio'];
 
         // check email validation
         if(validEmail($_POST['email'])) {
@@ -128,6 +134,9 @@ $f3->route('GET|POST /profile', function ($f3){
 
     // store user input into the hive
     $f3->set("userEmail", $userEmail);
+    $f3->set("userState", $userState);
+    $f3->set("userSeeking", $userSeeking);
+    $f3->set("userBio", $userBio);
 
     // display the form part 2 "Profile"
     $view = new Template();
