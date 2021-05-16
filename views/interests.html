@@ -11,6 +11,11 @@ This is form part 3 for a dating site that I made for the assignment "Dating 2"
     <div class="container p-4">
         <h1>Interests</h1><hr>
 
+        <!-- Spoof Error -->
+        <check if="{{isset(@errors['spoof'])}}">
+            <span class="text-danger"><strong>{{@errors['spoof']}}</strong></span>
+        </check>
+
         <!-- Form -->
         <form action="#" method="post">
             <!-- Top Half -->
@@ -21,7 +26,7 @@ This is form part 3 for a dating site that I made for the assignment "Dating 2"
                     <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input"
-                                   value="{{@interest}}" name="interest[]"> {{@interest}}
+                                   value="{{@interest}}" name="indoorInterests[]"> {{@interest}}
                         </label>
                     </div>
                 </repeat>
@@ -35,7 +40,7 @@ This is form part 3 for a dating site that I made for the assignment "Dating 2"
                     <div class="form-check form-check-inline col-4 col-lg-2 mx-4">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input"
-                                   value="{{@interest}}" name="interest[]"> {{@interest}}
+                                   value="{{@interest}}" name="outdoorInterests[]"> {{@interest}}
                         </label>
                     </div>
                 </repeat>

@@ -67,7 +67,7 @@ $f3->route('GET|POST /personalInfo', function ($f3){
         }
 
         // if the error array is empty, redirect to next page
-        if(empty($f3->get('errors'))){
+        if(empty($f3->get('errors'))) {
             header('location: profile');
         }
     }
@@ -78,14 +78,25 @@ $f3->route('GET|POST /personalInfo', function ($f3){
 });
 
 // part 2 of the create a profile form
-$f3->route('GET|POST /profile', function (){
+$f3->route('GET|POST /profile', function ($f3){
     // if the form has been submitted, add data to session and send user to next form
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $_SESSION['email'] = $_POST['email']; // required
+        // check email validation
+        if(validEmail($_POST['email'])) {
+            $_SESSION['email'] = $_POST['email']; // required
+        }
+        else{
+            $f3->set('errors["email"]', 'Email is required');
+        }
+
         $_SESSION['state'] = $_POST['state'];
         $_SESSION['seeking'] = $_POST['seeking'];
         $_SESSION['bio'] = $_POST['bio'];
-        header('location: interests');
+
+        // if the error array is empty, redirect to next page
+        if(empty($f3->get('errors'))) {
+            header('location: interests');
+        }
     }
 
     // display the form part 2 "Profile"
@@ -97,13 +108,37 @@ $f3->route('GET|POST /profile', function (){
 $f3->route('GET|POST /interests', function ($f3){
     // if the form has been submitted, add data to session and send user to the summary
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(!empty($_POST['interest'])){
-            $_SESSION['interest'] = implode(' ', $_POST['interest']);
+        // validate interests in case of spoofs, is okay if empty though
+        // in door interests
+        if(!empty($_POST['indoorInterests'])) {
+            if(validIndoor($_POST['indoorInterests'])){
+                $_SESSION['indoorInterests'] = implode(' ', $_POST['indoorInterests']);
+            }
+            else{
+                $f3->set('errors["spoof"]', 'Cheater!');
+            }
         }
         else{
-            $_SESSION['interest'] = "You did not choose any interests";
+            $_SESSION['indoorInterests'] = "You did not choose any indoor interests";
         }
-        header('location: summary');
+
+        // out door interests
+        if(!empty($_POST['outdoorInterests'])) {
+            if(validOutdoor($_POST['outdoorInterests'])){
+                $_SESSION['outdoorInterests'] = implode(' ', $_POST['outdoorInterests']);
+            }
+            else{
+                $f3->set('errors["spoof"]', 'Cheater!');
+            }
+        }
+        else{
+            $_SESSION['outdoorInterests'] = "You did not choose any outdoor interests";
+        }
+
+        // if the error array is empty, redirect to next page
+        if(empty($f3->get('errors'))) {
+            header('location: summary');
+        }
     }
 
     // Add indoorBoxes and outdoorBoxes to the hive

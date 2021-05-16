@@ -19,6 +19,11 @@ This is form part 2 for a dating site that I made for the assignment "Dating 2"
                 <div class="form-group">
                     <label for="email" class="mb-1"><strong>Email</strong></label>
                     <input type="text" class="form-control" id="email" name="email">
+
+                    <!-- Email Error -->
+                    <check if="isset({{@errors['email']}})">
+                        <span class="text-danger"><strong>{{@errors['email']}}</strong></span>
+                    </check>
                 </div>
 
                 <!-- State -->
