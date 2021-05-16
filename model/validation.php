@@ -10,7 +10,7 @@
 // checks to see that a string is all alphabetic
 function validName($name)
 {
-
+    return preg_match('/[^A-Za-z]/', $name);
 }
 
 // checks to see that an age is numeric and between 18 and 118
@@ -22,13 +22,13 @@ function validAge($age)
 // checks to see that a phone number is valid (you can decide what constitutes a “valid” phone number)
 function validPhone($phone)
 {
-
+    return strlen($phone) == 10 && preg_match('/[^0-9]/', $phone);
 }
 
 // checks to see that an email address is valid
 function validEmail($email)
 {
-
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 // checks each selected outdoor interest against a list of valid options
