@@ -18,19 +18,19 @@ This is form part 1 for a dating site that I made for the assignment "Dating 2"
                 <!-- First Name -->
                 <div class="form-group">
                     <label for="fName" class="mb-1"><strong>First Name</strong></label>
-                    <input type="text" class="form-control" id="fName" name="fName">
+                    <input type="text" class="form-control" id="fName" name="fName" value="{{@userFName}}">
                 </div>
 
                 <!-- Last Name -->
                 <div class="form-group">
                     <label for="lName" class="mb-1"><strong>Last Name</strong></label>
-                    <input type="text" class="form-control" id="lName" name="lName">
+                    <input type="text" class="form-control" id="lName" name="lName" value="{{@userLName}}">
                 </div>
 
                 <!-- Age -->
                 <div class="form-group">
                     <label for="age" class="mb-1"><strong>Age</strong></label>
-                    <input type="text" class="form-control" id="age" name="age">
+                    <input type="text" class="form-control" id="age" name="age" value="{{@userAge}}">
                 </div>
 
                 <!-- Gender -->
@@ -38,18 +38,20 @@ This is form part 1 for a dating site that I made for the assignment "Dating 2"
                     <p class="mb-1"><strong>Gender</strong></p>
                     <div class="form-check form-check-inline">
                         <label for="male" class="form-check-label">Male</label>
-                        <input type="radio" class="form-check-input" value="Male" id="male" name="gender">
+                        <input type="radio" class="form-check-input" value="Male" id="male" name="gender"
+                            <check if="{{@userGender == 'Male'}}">checked="checked"</check>>
                     </div>
                     <div class="form-check form-check-inline">
                         <label for="female" class="form-check-label">Female</label>
-                        <input type="radio" class="form-check-input" value="Female" id="female" name="gender">
+                        <input type="radio" class="form-check-input" value="Female" id="female" name="gender"
+                            <check if="{{@userGender == 'Female'}}">checked="checked"</check>>
                     </div>
                 </div>
 
                 <!-- Phone Number -->
                 <div class="form-group">
                     <label for="phoneNum" class="mb-1"><strong>Phone Number</strong></label>
-                    <input type="text" class="form-control" id="phoneNum" name="phoneNum">
+                    <input type="text" class="form-control" id="phoneNum" name="phoneNum" value="{{@userPhone}}">
                 </div>
             </div> <!-- Left Half END -->
 

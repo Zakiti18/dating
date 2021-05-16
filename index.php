@@ -36,8 +36,22 @@ $f3->route('GET /', function ($f3){
 
 // part 1 of the create a profile form
 $f3->route('GET|POST /personalInfo', function ($f3){
+    // initialize variables to store user input for sticky forms
+    $userFName = "";
+    $userLName = "";
+    $userAge = "";
+    $userGender = "";
+    $userPhone = "";
+
     // if the form has been submitted, add data to session and send user to next form
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        // actually store user input
+        $userFName = $_POST['fName'];
+        $userLName = $_POST['lName'];
+        $userAge = $_POST['age'];
+        $userGender = $_POST['gender'];
+        $userPhone = $_POST['phoneNum'];
+
         // check validation
         // name validation
         if(validName($_POST['fName']) && validName($_POST['lName'])) {
@@ -72,6 +86,13 @@ $f3->route('GET|POST /personalInfo', function ($f3){
         }
     }
 
+    // store user input into the hive
+    $f3->set("userFName", $userFName);
+    $f3->set("userLName", $userLName);
+    $f3->set("userAge", $userAge);
+    $f3->set("userGender", $userGender);
+    $f3->set("userPhone", $userPhone);
+
     // display the form part 1 "Personal Information"
     $view = new Template();
     echo $view->render('views/personalInfo.html');
@@ -79,8 +100,14 @@ $f3->route('GET|POST /personalInfo', function ($f3){
 
 // part 2 of the create a profile form
 $f3->route('GET|POST /profile', function ($f3){
+    // initialize variable to store user input for sticky forms
+    $userEmail = "";
+
     // if the form has been submitted, add data to session and send user to next form
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        // actually store user input
+        $userEmail = $_POST['email'];
+
         // check email validation
         if(validEmail($_POST['email'])) {
             $_SESSION['email'] = $_POST['email']; // required
@@ -98,6 +125,9 @@ $f3->route('GET|POST /profile', function ($f3){
             header('location: interests');
         }
     }
+
+    // store user input into the hive
+    $f3->set("userEmail", $userEmail);
 
     // display the form part 2 "Profile"
     $view = new Template();
