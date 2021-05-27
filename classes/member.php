@@ -24,6 +24,8 @@ class Member
     // methods
     /**
      * Member constructor.
+     * Initializes parameters to empty strings to help make the form sticky.
+     *
      * @param $_fname - String
      * @param $_lname - String
      * @param $_age - int
@@ -40,6 +42,8 @@ class Member
     }
 
     /**
+     * Returns the Members first name.
+     *
      * @return mixed String
      */
     public function getFname()
@@ -48,6 +52,8 @@ class Member
     }
 
     /**
+     * Sets the Members first name.
+     *
      * @param mixed $fname
      */
     public function setFname($fname)
@@ -56,6 +62,8 @@ class Member
     }
 
     /**
+     * Returns the Members last name.
+     *
      * @return mixed String
      */
     public function getLname()
@@ -64,6 +72,8 @@ class Member
     }
 
     /**
+     * Sets the Members last name.
+     *
      * @param mixed $lname
      */
     public function setLname($lname)
@@ -72,6 +82,8 @@ class Member
     }
 
     /**
+     * Returns the Members age.
+     *
      * @return mixed int
      */
     public function getAge()
@@ -80,6 +92,8 @@ class Member
     }
 
     /**
+     * Sets the Members age.
+     *
      * @param mixed $age
      */
     public function setAge($age)
@@ -88,6 +102,8 @@ class Member
     }
 
     /**
+     * Returns the Members gender.
+     *
      * @return mixed String
      */
     public function getGender()
@@ -96,6 +112,8 @@ class Member
     }
 
     /**
+     * Sets the Members gender.
+     *
      * @param mixed $gender
      */
     public function setGender($gender)
@@ -104,6 +122,8 @@ class Member
     }
 
     /**
+     * Returns the Members phone number.
+     *
      * @return mixed String
      */
     public function getPhone()
@@ -112,6 +132,8 @@ class Member
     }
 
     /**
+     * Sets the Members phone number.
+     *
      * @param mixed $phone
      */
     public function setPhone($phone)
@@ -120,6 +142,8 @@ class Member
     }
 
     /**
+     * Returns the Members email.
+     *
      * @return mixed String
      */
     public function getEmail()
@@ -128,6 +152,8 @@ class Member
     }
 
     /**
+     * Sets the Members email.
+     *
      * @param mixed $email
      */
     public function setEmail($email)
@@ -136,6 +162,8 @@ class Member
     }
 
     /**
+     * Returns the Members state.
+     *
      * @return mixed String
      */
     public function getState()
@@ -144,6 +172,8 @@ class Member
     }
 
     /**
+     * Sets the Members state.
+     *
      * @param mixed $state
      */
     public function setState($state)
@@ -152,6 +182,8 @@ class Member
     }
 
     /**
+     * Returns the gender that the Member is seeking.
+     *
      * @return mixed String
      */
     public function getSeeking()
@@ -160,6 +192,8 @@ class Member
     }
 
     /**
+     * Sets the gender that the Member is seeking.
+     *
      * @param mixed $seeking
      */
     public function setSeeking($seeking)
@@ -168,6 +202,8 @@ class Member
     }
 
     /**
+     * Returns the Members biography.
+     *
      * @return mixed String
      */
     public function getBio()
@@ -176,6 +212,8 @@ class Member
     }
 
     /**
+     * Sets the Members biography.
+     *
      * @param mixed $bio
      */
     public function setBio($bio)

@@ -16,6 +16,8 @@ class PremiumMember extends Member
 
     // methods
     /**
+     * Returns the PremiumMembers indoor interests.
+     *
      * @return array of Strings
      */
     public function getInDoorInterests()
@@ -24,6 +26,8 @@ class PremiumMember extends Member
     }
 
     /**
+     * Sets the PremiumMembers indoor interests.
+     *
      * @param array $inDoorInterests
      */
     public function setInDoorInterests($inDoorInterests)
@@ -32,6 +36,8 @@ class PremiumMember extends Member
     }
 
     /**
+     * Returns the PremiumMembers outdoor interests.
+     *
      * @return array of Strings
      */
     public function getOutDoorInterests()
@@ -40,6 +46,8 @@ class PremiumMember extends Member
     }
 
     /**
+     * Sets the PremiumMembers outdoor interests.
+     *
      * @param array $outDoorInterests
      */
     public function setOutDoorInterests($outDoorInterests)

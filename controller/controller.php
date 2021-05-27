@@ -1,23 +1,32 @@
 <?php
-/*
+
+/**
+ * Class Controller
  * 328/dating/controller/controller.php
  * Phillip Ball
  * 05/26/2021
  *
  * This is my controller for the Dating assignment
 */
-
 class Controller
 {
     // fields
     private $_f3; // router
 
     // methods
+    /**
+     * Controller constructor.
+     *
+     * @param $f3 - Fat-Free router
+     */
     function __construct($f3)
     {
         $this->_f3 = $f3;
     }
 
+    /**
+     * Template for the home page.
+     */
     function home()
     {
         // Add userQuotes to the hive
@@ -28,6 +37,9 @@ class Controller
         echo $view->render('views/home.html');
     }
 
+    /**
+     * Template for the personalInfo page (part 1 of the sign up form).
+     */
     function personalInfo()
     {
         // instantiate a user object
@@ -85,6 +97,9 @@ class Controller
         echo $view->render('views/personalInfo.html');
     }
 
+    /**
+     * Template for the profile page (part 2 of the sign up form).
+     */
     function profile()
     {
         // initialize variables to store user input for sticky forms
@@ -131,6 +146,10 @@ class Controller
         echo $view->render('views/profile.html');
     }
 
+    /**
+     * Template for the interests page (part 3 of the sign up form).
+     * This page is only viewed by PremiumMembers.
+     */
     function interests()
     {
         $user = $_SESSION['user'];
@@ -170,6 +189,10 @@ class Controller
         echo $view->render('views/interests.html');
     }
 
+    /**
+     * Template for the summary page (final part of the sign up form).
+     * Only displays interests for PremiumMembers.
+     */
     function summary()
     {
         // display the form summary
