@@ -34,6 +34,7 @@ class Controller
         $userAge = "";
         $userGender = "";
         $userPhone = "";
+        $premiumUser = "";
 
         // if the form has been submitted, add data to session and send user to next form
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -43,6 +44,7 @@ class Controller
             $userAge = $_POST['age'];
             $userGender = $_POST['gender'];
             $userPhone = $_POST['phoneNum'];
+            $premiumUser = $_POST['premium'];
 
             // check validation
             // name validation
@@ -72,6 +74,8 @@ class Controller
                 $this->_f3->set('errors["phone"]', 'Phone number is required and is entered like the example "1234567890"');
             }
 
+            $_SESSION['premium'] = $_POST['premium'];
+
             // if the error array is empty, redirect to next page
             if(empty($this->_f3->get('errors'))) {
                 header('location: profile');
@@ -84,6 +88,7 @@ class Controller
         $this->_f3->set("userAge", $userAge);
         $this->_f3->set("userGender", $userGender);
         $this->_f3->set("userPhone", $userPhone);
+        $this->_f3->set("premiumUser", $premiumUser);
 
         // display the form part 1 "Personal Information"
         $view = new Template();

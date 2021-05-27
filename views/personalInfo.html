@@ -74,6 +74,14 @@ This is form part 1 for a dating site that I made for the assignment "Dating 2"
                         <span class="text-danger">{{@errors['phone']}}</span>
                     </check>
                 </div>
+
+                <!-- Premium Account Checkbox -->
+                <div class="form-group">
+                    <p class="mb-1"><strong>Premium Membership</strong></p>
+                    <input type="checkbox" class="form-check-input" value="premium" id="premium" name="premium"
+                        <check if="{{@premiumUser == 'premium'}}">checked="checked"</check>>
+                    <label for="premium" class="form-check-label">Sign me up for a Premium Account!</label>
+                </div>
             </div> <!-- Left Half END -->
 
             <!-- Right Half -->
