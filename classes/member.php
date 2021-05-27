@@ -1,12 +1,13 @@
 <?php
-/*
+
+/**
+ * Class Member
  * 328/dating/classes/member.php
  * Phillip Ball
  * 05/26/2021
  *
  * This file is used to store users input as an object
 */
-
 class Member
 {
     // fields
@@ -29,7 +30,7 @@ class Member
      * @param $_gender - String
      * @param $_phone - String
      */
-    public function __construct($_fname, $_lname, $_age, $_gender, $_phone)
+    public function __construct($_fname="", $_lname="", $_age="", $_gender="", $_phone="")
     {
         $this->_fname = $_fname;
         $this->_lname = $_lname;

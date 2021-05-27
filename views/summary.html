@@ -11,14 +11,21 @@ This is the form summary for a dating site that I made for the assignment "Datin
     <div class="container mx-auto mb-4 row">
         <!-- Left Half -->
         <div class="col-12 col-md-6 my-4 pt-3" id="newUserInfo">
-            <p>Name: {{@SESSION.fName}} {{@SESSION.lName}}</p><hr>
-            <p>Gender: {{@SESSION.gender}}</p><hr>
-            <p>Age: {{@SESSION.age}}</p><hr>
-            <p>Phone: {{@SESSION.phoneNum}}</p><hr>
-            <p>Email: {{@SESSION.email}}</p><hr>
-            <p>State: {{@SESSION.state}}</p><hr>
-            <p>Seeking: {{@SESSION.seeking}}</p><hr>
-            <p>Interests: {{@SESSION.indoorInterests}} {{@SESSION.outdoorInterests}}</p>
+            <p>Name: {{ @SESSION.user->getFname() }} {{ @SESSION.user->getLname() }}</p><hr>
+            <p>Gender: {{ @SESSION.user->getGender() }}</p><hr>
+            <p>Age: {{ @SESSION.user->getAge() }}</p><hr>
+            <p>Phone: {{ @SESSION.user->getPhone() }}</p><hr>
+            <p>Email: {{ @SESSION.user->getEmail() }}</p><hr>
+            <p>State: {{ @SESSION.user->getState() }}</p><hr>
+            <p>Seeking: {{ @SESSION.user->getSeeking() }}</p>
+
+            <check if="{{ @SESSION.user instanceof PremiumMember }}">
+                <hr><p>
+                    Interests:
+                    {{ implode(' ', @SESSION.user->getInDoorInterests()) }}
+                    {{ implode(' ', @SESSION.user->getOutDoorInterests()) }}
+                </p>
+            </check>
         </div> <!-- Left Half END -->
 
         <!-- Right Half -->
@@ -30,7 +37,7 @@ This is the form summary for a dating site that I made for the assignment "Datin
             <!-- Biography -->
             <div class="mx-5 mt-5">
                 <p id="bioTitle">Biography</p>
-                <p class="mx-1">{{@SESSION.bio}}</p>
+                <p class="mx-1">{{ @SESSION.user->getBio() }}</p>
             </div>
         </div> <!-- Right Half END -->
 

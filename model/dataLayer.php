@@ -10,6 +10,7 @@
 
 class DataLayer
 {
+    // methods
     static function getUserQuotes()
     {
         return array("Sprinkles" => "I've finally found my cupcake!",

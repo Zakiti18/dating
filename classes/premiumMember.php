@@ -1,12 +1,13 @@
 <?php
-/*
+
+/**
+ * Class PremiumMember
  * 328/dating/classes/premiumMember.php
  * Phillip Ball
  * 05/26/2021
  *
  * This file is a child class of 328/dating/classes/member.php
 */
-
 class PremiumMember extends Member
 {
     // fields
