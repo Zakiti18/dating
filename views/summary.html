@@ -32,7 +32,10 @@ This is the form summary for a dating site that I made for the assignment "Datin
         <div class="col-12 col-md-6">
             <!-- Profile Picture -->
             <div class="mx-auto mt-3 w-75">
-                <img src="images/placeholder.png" alt="profile picture" id="profilePic">
+                <check if="{{@SESSION.user instanceof PremiumMember && @SESSION.user->getProfileImage() != ''}}">
+                    <true><img src="{{@SESSION.user->getProfileImage()}}" alt="profile picture" id="profilePic"></true>
+                    <false><img src="images/placeholder.png" alt="profile picture" id="profilePic"></false>
+                </check>
             </div>
             <!-- Biography -->
             <div class="mx-5 mt-5">

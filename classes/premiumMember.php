@@ -11,8 +11,9 @@
 class PremiumMember extends Member
 {
     // fields
-    private $_inDoorInterests = array();
-    private $_outDoorInterests = array();
+    private $_inDoorInterests;
+    private $_outDoorInterests;
+    private $_profileImage;
 
     // methods
     /**
@@ -53,5 +54,25 @@ class PremiumMember extends Member
     public function setOutDoorInterests($outDoorInterests)
     {
         $this->_outDoorInterests = $outDoorInterests;
+    }
+
+    /**
+     * Returns the PremiumMembers profile image location.
+     *
+     * @return string
+     */
+    public function getProfileImage()
+    {
+        return $this->_profileImage;
+    }
+
+    /**
+     * Sets the PremiumMembers profile image location.
+     *
+     * @param string $profileImage
+     */
+    public function setProfileImage($profileImage)
+    {
+        $this->_profileImage = $profileImage;
     }
 }
